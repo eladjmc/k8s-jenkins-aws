@@ -46,7 +46,7 @@ pipeline {
              SECRET_FILE_ID = credentials('secret-yml')
             }
           steps {
-            cat ${SECRET_FILE_ID} > secret.yml
+            cat '${SECRET_FILE_ID} > secret.yml'
           }
         }
 

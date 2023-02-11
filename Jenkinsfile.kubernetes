@@ -46,7 +46,7 @@ pipeline {
              SECRET_FILE_ID = credentials('secret-yml')
             }
           steps {
-            echo "${SECRET_FILE_ID} > secret.yml"
+            sh("kubectl apply -f ${SECRET_FILE_ID}")
           }
         }
 

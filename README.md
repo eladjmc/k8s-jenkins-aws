@@ -2,7 +2,7 @@
 <img src="./assets/images/title.png" width="900" height="370" />
 
 
-### In this project I used a Jenkins process based on Jenkins declarative pipeline to pull a repository from github, copile the code in it, make a docker image from it, push it to a private ECR and and deploy the app using EKS.
+### In this project I used a Jenkins process based on Jenkins declarative pipeline to pull a repository from github, compile the code in it, make a docker image from it, push it to a private ECR and and deploy the app using EKS.
 
 <hr>
 
@@ -63,4 +63,4 @@ By going through all the steps and making sure you have the prerequisites you:
 
 <br>
 
-*** Note: I was not able to make the app accessible via port 443 (Https) within given time frame given to me for the task, I would appreciate it if someone can send me guide about tls/ssl certificates for EKS apps/ingress/lb 🙏
+*** Note: I was not able to make the app accessible via port 443 (Https) within the given time frame for the task, I would appreciate it if someone can send me a guide about tls/ssl certificates for EKS apps/ingress/lb 🙏

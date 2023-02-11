@@ -48,7 +48,7 @@ pipeline {
           steps {
             sh("cat ${SECRET_FILE_ID} > secret.yml")
             sh '''
-            kubectl apply secret.yml
+            kubectl apply -f secret.yml
             '''
           }
         }

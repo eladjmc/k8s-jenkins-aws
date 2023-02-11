@@ -2,7 +2,7 @@ pipeline {
 
     agent any
     stages {
-        stage('Npm build') {
+        stage('NPM build') {
           steps {
             dir('app'){
               echo 'Npm build is in progress'

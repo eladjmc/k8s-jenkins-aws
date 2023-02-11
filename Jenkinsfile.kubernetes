@@ -49,6 +49,17 @@ pipeline {
             '''
           }
         }
+
+        stage('Output URL') {
+          steps {
+            echo 'Outputing the app URL in preogress'
+            sh '''
+            sleep 10
+            kubectl get svc > URL.txt
+            grep -h LoadBalancer URL.txt
+            '''
+          }
+        }
     }
 
 }

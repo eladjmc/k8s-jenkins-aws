@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appjs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appjs
+  template:
+    metadata:
+      labels:
+        app: appjs
+    spec:
+      containers:
+        - name: appjs
+          image: 302590152688.dkr.ecr.eu-central-1.amazonaws.com/eladjmc-app:latest
+          ports:
+          - containerPort: 443
+          env:
+            - name: PORT
+              value: "443"
+          imagePullPolicy: Always
+      imagePullSecrets:
+      - name: ecr-secret

@@ -46,7 +46,7 @@ pipeline {
              SECRET_FILE_ID = credentials('secret-yml')
             }
           steps {
-            cp ${SECRET_FILE_ID} './'
+            bat "powershell Copy-Item ${SECRET_FILE_ID} - ./" 
           }
         }
 

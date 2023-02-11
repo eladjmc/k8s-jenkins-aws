@@ -41,12 +41,22 @@ pipeline {
           }
         }
 
+        stage('Deploy secrets') {
+            environment {
+             SECRET_FILE_ID = credentials('secret-yml')
+            }
+          steps {
+            echo 'Deploy/update load balancer svc is in progress'
+            sh '''
+            kubectl apply -f deploy-lb.yml
+            '''
+          }
+        }
+
         stage('Deploy/update app deployment/replicaset') {
           steps {
+            cp ${SECRET_FILE_ID} './'
             echo 'Deploy/update app is in progress'
-            sh '''
-            kubectl apply -f deploy-app.yml
-            '''
           }
         }
 

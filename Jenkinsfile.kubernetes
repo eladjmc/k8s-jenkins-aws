@@ -31,6 +31,24 @@ pipeline {
             '''
           }
         }
+
+        stage('Deploy/update load balancer svc') {
+          steps {
+            echo 'Deploy/update load balancer svc is in progress'
+            sh '''
+            kubectl apply -f deploy-lb.yml
+            '''
+          }
+        }
+
+        stage('Deploy/update app deployment/replicaset') {
+          steps {
+            echo 'Deploy/update app is in progress'
+            sh '''
+            kubectl apply -f deploy-app.yml
+            '''
+          }
+        }
     }
 
 }

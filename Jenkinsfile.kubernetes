@@ -1,0 +1,36 @@
+pipeline {
+
+    agent any
+    stages {
+        stage('Npm build') {
+          steps {
+            dir('app'){
+              echo 'Npm build is in progress'
+              sh '''
+                npm install
+              '''
+            }
+          }
+        }
+
+        stage('Docker build') {
+          steps {
+            echo 'Docker build is in progress'
+            sh '''
+            docker build -t appjs .
+            '''
+          }
+        }
+
+        stage('Push image') {
+          steps {
+            echo 'Push image is in progress'
+            sh '''
+            docker tag appjs:latest 302590152688.dkr.ecr.eu-central-1.amazonaws.com/eladjmc-app:latest 
+            docker push 302590152688.dkr.ecr.eu-central-1.amazonaws.com/eladjmc-app:latest
+            '''
+          }
+        }
+    }
+
+}

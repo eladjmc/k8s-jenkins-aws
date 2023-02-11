@@ -1,5 +1,5 @@
 # Deploying App to K8S Cluster Using Jenkins declarative pipeline 
-<img src="./assets/images/title.png" width="600" height="370" />
+<img src="./assets/images/title.png" width="900" height="370" />
 
 
 ### In this project I used a Jenkins process based on Jenkins declarative pipeline to pull a repository from github, copile the code in it, make a docker image from it, push it to a private ECR and and deploy the app using EKS.
